@@ -82,6 +82,21 @@ class Stack {
 	}
 }
 
+function is_palindrome(string) {
+	// palindrome template
+	string = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+	let palindromeStack = new Stack();
+	let splitString = string.split("");
+	let stackLength = splitString.length;
+	let forwardResults = "";
+	splitString.forEach(char => palindromeStack.push(char));
+	for (let i = stackLength; i > 0; i--) {
+		forwardResults += palindromeStack.pop();
+	}
+	console.log(s === forwardResults);
+	return string === forwardResults;
+}
+
 let starTrek = new Stack();
 // console.log(starTrek.isEmpty(starTrek));
 // console.log(starTrek);
